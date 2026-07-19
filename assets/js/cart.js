@@ -133,6 +133,69 @@
     });
   }
 
+  /* --------------------------- quick view modal --------------------------- */
+  function injectQuickView() {
+    if (SNIPCART) return;
+    if (document.querySelector("#qv-modal")) return;
+    var wrap = document.createElement("div");
+    wrap.innerHTML =
+      '<div class="qv-overlay" id="qv-overlay"></div>' +
+      '<div class="qv-modal" id="qv-modal" role="dialog" aria-modal="true" aria-label="Product details">' +
+        '<button class="qv-close" aria-label="Close">&times;</button>' +
+        '<div class="qv-media" id="qv-media"></div>' +
+        '<div class="qv-info" id="qv-info"></div>' +
+      "</div>";
+    document.body.appendChild(wrap);
+    document.querySelector("#qv-overlay").addEventListener("click", closeQuickView);
+    document.querySelector(".qv-close").addEventListener("click", closeQuickView);
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeQuickView(); });
+  }
+  function closeQuickView() {
+    var m = document.querySelector("#qv-modal"), o = document.querySelector("#qv-overlay");
+    if (m) { m.classList.remove("show"); m.querySelectorAll("video").forEach(function (v) { v.pause(); }); }
+    if (o) o.classList.remove("show");
+  }
+  function openQuickView(p) {
+    var media = document.querySelector("#qv-media");
+    var info = document.querySelector("#qv-info");
+    if (!media || !info) return;
+    media.innerHTML = mediaHTML(p);
+    var opts = "";
+    if (p.options && p.options.choices && p.options.choices.length) {
+      opts = '<label class="qv-opt"><span>' + esc(p.options.label || "Option") + '</span>' +
+        '<select id="qv-select">' + p.options.choices.map(function (c) {
+          var nm = choiceName(c);
+          var pr = (typeof c === "object" && c.price != null) ? " — " + money(c.price) : "";
+          return "<option>" + esc(nm) + pr + "</option>";
+        }).join("") + "</select></label>";
+    }
+    info.innerHTML =
+      (p.category ? '<span class="qv-cat">' + esc(p.category) + "</span>" : "") +
+      "<h3>" + esc(p.name) + "</h3>" +
+      '<div class="qv-price" id="qv-price">' + priceLabelFor(p) + "</div>" +
+      '<p class="qv-desc">' + esc(p.description || "") + "</p>" +
+      opts +
+      '<label class="qv-opt"><span>Personalization (optional)</span><input type="text" id="qv-note" placeholder="Name, initials, or text"></label>' +
+      '<button class="btn btn-gold" id="qv-add" style="width:100%;justify-content:center;margin-top:.4rem">Add to Cart</button>' +
+      '<p class="qv-hint">Add your photo/logo &amp; more details in the cart at checkout.</p>';
+    // live price on option change
+    var sel = info.querySelector("#qv-select");
+    if (sel) sel.addEventListener("change", function () {
+      var nm = sel.value.split(" — ")[0];
+      document.querySelector("#qv-price").textContent = money(priceFor(p, nm));
+    });
+    info.querySelector("#qv-add").addEventListener("click", function () {
+      var opt = sel ? sel.value.split(" — ")[0] : firstChoiceName(findProduct(p.id));
+      var note = (info.querySelector("#qv-note") || {}).value || "";
+      addItem(p.id, opt);
+      if (note) { var k = lineKey(p.id, opt); var l = cart.find(function (i) { return lineKey(i.id, i.option) === k; }); if (l) { l.note = note.trim(); save(cart); render(); } }
+      closeQuickView();
+    });
+    setupCarousels(document.querySelector("#qv-modal"));
+    document.querySelector("#qv-overlay").classList.add("show");
+    document.querySelector("#qv-modal").classList.add("show");
+  }
+
   /* --------------------------- shop grid page --------------------------- */
   function renderGrid() {
     var grid = document.querySelector("#shop-grid");
@@ -167,6 +230,14 @@
       });
     }
     setupCarousels(grid);
+    if (!SNIPCART) {
+      grid.querySelectorAll(".prod-card").forEach(function (card) {
+        var addBtn = card.querySelector(".js-add"); if (!addBtn) return;
+        var pid = addBtn.getAttribute("data-add");
+        var media = card.querySelector(".prod-media");
+        if (media) { media.style.cursor = "zoom-in"; media.addEventListener("click", function () { openQuickView(findProduct(pid)); }); }
+      });
+    }
   }
 
   /* ------------------------- cart button + drawer ------------------------ */
@@ -372,7 +443,7 @@
   }
 
   /* ------------------------------- init ------------------------------- */
-  function init() { renderGrid(); renderFilters(); injectChrome(); render(); if (SNIPCART) initSnipcart(); }
+  function init() { renderGrid(); renderFilters(); injectChrome(); injectQuickView(); render(); if (SNIPCART) initSnipcart(); }
   init();
   }
   if (window.LACCI_READY) run();
