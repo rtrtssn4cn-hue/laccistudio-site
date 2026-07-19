@@ -7,9 +7,9 @@
   "instagram": "",
   "facebook": "",
   "etsy": "",
-  "checkoutMode": "inquiry",
+  "checkoutMode": "snipcart",
   "orderEmail": "info@laccistudio.com",
   "paypalClientId": "",
-  "snipcartApiKey": "",
+  "snipcartApiKey": "ZjljMTFhMDEtMmFlNC00OGJmLTk2NGQtZTU2NWQ5YTZjNDg0NjM5MjAwNTc3NjY0NTQwNTk1",
   "uploadEndpoint": ""
 }
