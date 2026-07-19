@@ -80,6 +80,59 @@
     });
   }
 
+  /* --------------------------- product media carousel --------------------------- */
+  function mediaHTML(p) {
+    var imgs = (p.images && p.images.length) ? p.images : (p.image ? [p.image] : []);
+    var slides = imgs.map(function (src, i) {
+      return '<div class="pslide' + (i === 0 ? " active" : "") + '"><img src="' + esc(src) + '" alt="' + esc(p.name) + '" loading="lazy"></div>';
+    });
+    if (p.video) {
+      slides.push('<div class="pslide"><video src="' + esc(p.video) + '" muted loop playsinline preload="metadata"></video><span class="pvid-badge">▶ Video</span></div>');
+    }
+    var n = slides.length;
+    var controls = "";
+    if (n > 1) {
+      var dots = "";
+      for (var i = 0; i < n; i++) dots += '<span class="pdot' + (i === 0 ? " on" : "") + '" data-d="' + i + '"></span>';
+      controls = '<button class="pnav prev" aria-label="Previous photo">‹</button>' +
+        '<button class="pnav next" aria-label="Next photo">›</button>' +
+        '<div class="pdots">' + dots + "</div>";
+    }
+    return '<div class="prod-media" data-idx="0">' + slides.join("") +
+      (p.category ? '<span class="prod-tag">' + esc(p.category) + "</span>" : "") +
+      controls + "</div>";
+  }
+  function setupCarousels(grid) {
+    grid.querySelectorAll(".prod-media").forEach(function (media) {
+      var slides = media.querySelectorAll(".pslide");
+      if (slides.length < 2) return;
+      var dots = media.querySelectorAll(".pdot");
+      function show(n) {
+        var cur = parseInt(media.getAttribute("data-idx") || "0", 10);
+        var prevVid = slides[cur].querySelector("video"); if (prevVid) prevVid.pause();
+        n = (n + slides.length) % slides.length;
+        slides.forEach(function (s, i) { s.classList.toggle("active", i === n); });
+        dots.forEach(function (d, i) { d.classList.toggle("on", i === n); });
+        media.setAttribute("data-idx", n);
+        var vid = slides[n].querySelector("video"); if (vid) { vid.play().catch(function () {}); }
+      }
+      var prev = media.querySelector(".pnav.prev");
+      var next = media.querySelector(".pnav.next");
+      if (prev) prev.addEventListener("click", function (e) { e.preventDefault(); e.stopPropagation(); show(parseInt(media.getAttribute("data-idx") || "0", 10) - 1); });
+      if (next) next.addEventListener("click", function (e) { e.preventDefault(); e.stopPropagation(); show(parseInt(media.getAttribute("data-idx") || "0", 10) + 1); });
+      dots.forEach(function (d) { d.addEventListener("click", function (e) { e.preventDefault(); e.stopPropagation(); show(parseInt(d.getAttribute("data-d"), 10)); }); });
+      // swipe on touch
+      var x0 = null;
+      media.addEventListener("touchstart", function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+      media.addEventListener("touchend", function (e) {
+        if (x0 === null) return;
+        var dx = e.changedTouches[0].clientX - x0;
+        if (Math.abs(dx) > 40) show(parseInt(media.getAttribute("data-idx") || "0", 10) + (dx < 0 ? 1 : -1));
+        x0 = null;
+      });
+    });
+  }
+
   /* --------------------------- shop grid page --------------------------- */
   function renderGrid() {
     var grid = document.querySelector("#shop-grid");
@@ -98,8 +151,7 @@
         btn = '<button class="btn btn-gold js-add" data-add="' + esc(p.id) + '">Add to Cart</button>';
       }
       return '<article class="prod-card reveal in" data-category="' + esc(p.category || "") + '" title="' + esc(p.description || "") + '">' +
-        '<div class="prod-media"><img src="' + esc(p.image) + '" alt="' + esc(p.name) + '" loading="lazy">' +
-        (p.category ? '<span class="prod-tag">' + esc(p.category) + "</span>" : "") + "</div>" +
+        mediaHTML(p) +
         '<div class="prod-body">' +
         '<h3>' + esc(p.name) + "</h3>" +
         '<div class="prod-foot"><span class="prod-price">' + priceLabelFor(p) + "</span></div>" +
@@ -114,6 +166,7 @@
         });
       });
     }
+    setupCarousels(grid);
   }
 
   /* ------------------------- cart button + drawer ------------------------ */

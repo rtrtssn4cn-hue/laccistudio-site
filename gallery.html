@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shop — Lacci Studio</title>
-<meta name="description" content="Shop personalized products from Lacci Studio — tumblers, coasters, engraved gifts, apparel, and more. Add to cart and check out securely.">
+<title>Gallery — Lacci Studio</title>
+<meta name="description" content="See examples of custom personalized products created by Lacci Studio — tumblers, coasters, engraving, embroidery, apparel, stickers, and gifts.">
 <link rel="icon" href="assets/logo/favicon.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,43 +20,39 @@
     <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
-      <li><a href="shop.html" class="active">Shop</a></li>
+      <li><a href="shop.html">Shop</a></li>
       <li><a href="services.html">Services</a></li>
-      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="gallery.html" class="active">Gallery</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </div>
 </header>
 
-<section class="page-hero page-hero-slim">
+<section class="page-hero">
   <div class="wrap">
-    <p class="crumb"><a href="index.html">Home</a> &nbsp;/&nbsp; Shop</p>
-    <h1>Shop Our Designs</h1>
-    <p class="lead">Ready-to-personalize favorites — or send your own design for a fully custom piece.</p>
+    <p class="crumb"><a href="index.html">Home</a> &nbsp;/&nbsp; Gallery</p>
+    <h1>Our Work</h1>
+    <p class="lead" data-c="galleryIntro">A look at recent custom pieces we've created for our customers.</p>
   </div>
 </section>
 
-<section class="shop-section">
+<section>
   <div class="wrap">
-    <div id="shop-filters" class="shop-filters"><!-- category filters render here --></div>
-    <div id="shop-grid" class="shop-grid">
-      <!-- Products render here from assets/js/shop-config.js -->
-      <noscript><p style="text-align:center;color:var(--mocha)">Please enable JavaScript to view the shop, or <a href="contact.html">contact us</a> to order.</p></noscript>
+    <div id="gallery-grid" class="gal-grid">
+      <noscript><p style="text-align:center;color:var(--mocha)">Please enable JavaScript to view the gallery, or <a href="contact.html">contact us</a>.</p></noscript>
     </div>
   </div>
 </section>
 
-<!-- CUSTOM CTA -->
-<section class="bg-linen center">
+<!-- CTA -->
+<section class="cta-band">
   <div class="wrap" style="max-width:720px">
-    <span class="eyebrow">Don’t see it?</span>
-    <h2>Want something fully custom?</h2>
-    <div class="divider"></div>
-    <p class="lead">Every product can be made from your own photo, logo, or artwork. Tell us what you have in mind and we’ll create it.</p>
+    <h2>Want something like this?</h2>
+    <p class="lead">Send us your idea, photo, or logo and we'll create a custom piece just for you.</p>
     <div class="btn-row center" style="justify-content:center">
       <a href="contact.html" class="btn btn-gold">Start a Custom Order</a>
-      <a href="services.html" class="btn btn-outline">See All Services</a>
+      <a href="shop.html" class="btn btn-ghost-gold">Shop Designs</a>
     </div>
   </div>
 </section>

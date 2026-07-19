@@ -1,0 +1,14 @@
+{
+  "intro": "A look at recent custom pieces we've created for our customers. Swap these for photos of your real work anytime.",
+  "items": [
+    { "image": "assets/img/gal-drinkware.jpg", "caption": "Custom Tumblers" },
+    { "image": "assets/img/gal-coasters.jpg", "caption": "Personalized Coasters" },
+    { "image": "assets/img/gal-embroidery.jpg", "caption": "Embroidered Apparel" },
+    { "image": "assets/img/gal-engraving.jpg", "caption": "Laser Engraving" },
+    { "image": "assets/img/gal-desk.jpg", "caption": "Desk Accessories" },
+    { "image": "assets/img/gal-stickers.jpg", "caption": "Stickers & Decals" },
+    { "image": "assets/img/gal-apparel.jpg", "caption": "Custom Apparel" },
+    { "image": "assets/img/gal-packaging.jpg", "caption": "Gift Packaging" },
+    { "image": "assets/img/gal-gifts.jpg", "caption": "Personalized Gifts" }
+  ]
+}
