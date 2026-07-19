@@ -11,19 +11,14 @@
       .catch(function () { return null; });
   }
 
-  function esc(s) { return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) {
-    return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
-
   Promise.all([
     getJSON("/content/settings.json"),
     getJSON("/content/products.json"),
-    getJSON("/content/home.json"),
-    getJSON("/content/gallery.json")
+    getJSON("/content/home.json")
   ]).then(function (res) {
     var s = res[0] || {};
     var p = res[1] || {};
     var h = res[2] || {};
-    var g = res[3] || {};
 
     // ---- Contact / site settings (used by main.js) ----
     window.LACCI_CONFIG = {
@@ -50,10 +45,8 @@
           })
         };
       }
-      var imgs = (pr.images && pr.images.length) ? pr.images : (pr.image ? [pr.image] : []);
       return {
-        id: pr.id, name: pr.name, price: Number(pr.price),
-        image: imgs[0] || "", images: imgs, video: pr.video || "",
+        id: pr.id, name: pr.name, price: Number(pr.price), image: pr.image,
         category: pr.category, description: pr.description, options: opt
       };
     });
@@ -76,16 +69,6 @@
         el.textContent = h[k];
       });
     });
-
-    // ---- Gallery page ----
-    var ggrid = document.querySelector("#gallery-grid");
-    if (ggrid) {
-      if (g.intro) document.querySelectorAll('[data-c="galleryIntro"]').forEach(function (el) { el.textContent = g.intro; });
-      ggrid.innerHTML = (g.items || []).map(function (it) {
-        return '<figure class="gal-item"><img src="' + esc(it.image) + '" alt="' + esc(it.caption || "") + '" loading="lazy">' +
-          (it.caption ? '<figcaption>' + esc(it.caption) + "</figcaption>" : "") + "</figure>";
-      }).join("");
-    }
 
     window.LACCI_READY = true;
     document.dispatchEvent(new Event("lacci:ready"));
