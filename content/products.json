@@ -35,9 +35,9 @@
     },
     {
       "id": "custom-apparel",
-      "name": "Custom Apparel",
+      "name": "Personalized T-shirts",
       "price": 24.99,
-      "image": "assets/img/product-apparel.jpg",
+      "image": "/assets/img/89fc02fb-fa4c-47d2-8ddf-cd52e36de1a8.png",
       "category": "Apparel",
       "description": "Your design on shirts, hoodies, hats & more — sublimation or vinyl.",
       "optionLabel": "Garment",
