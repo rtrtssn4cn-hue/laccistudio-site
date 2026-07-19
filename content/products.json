@@ -9,10 +9,18 @@
       "description": "Insulated tumbler fully printed with your design, name, or monogram.",
       "optionLabel": "Size",
       "choices": [
-        { "name": "20 oz Skinny" },
-        { "name": "30 oz" },
-        { "name": "40 oz" },
-        { "name": "12 oz Kids" }
+        {
+          "name": "20 oz Skinny"
+        },
+        {
+          "name": "30 oz"
+        },
+        {
+          "name": "40 oz"
+        },
+        {
+          "name": "12 oz Kids"
+        }
       ]
     },
     {
@@ -34,17 +42,39 @@
       "description": "Your design on shirts, hoodies, hats & more — sublimation or vinyl.",
       "optionLabel": "Garment",
       "choices": [
-        { "name": "T-Shirt" },
-        { "name": "Long-Sleeve Tee" },
-        { "name": "Hoodie" },
-        { "name": "Crewneck Sweatshirt" },
-        { "name": "Tank Top" },
-        { "name": "Youth Tee" },
-        { "name": "Dad Cap" },
-        { "name": "Trucker Hat" },
-        { "name": "Beanie" },
-        { "name": "Tote Bag" },
-        { "name": "Apron" }
+        {
+          "name": "T-Shirt"
+        },
+        {
+          "name": "Long-Sleeve Tee"
+        },
+        {
+          "name": "Hoodie"
+        },
+        {
+          "name": "Crewneck Sweatshirt"
+        },
+        {
+          "name": "Tank Top"
+        },
+        {
+          "name": "Youth Tee"
+        },
+        {
+          "name": "Dad Cap"
+        },
+        {
+          "name": "Trucker Hat"
+        },
+        {
+          "name": "Beanie"
+        },
+        {
+          "name": "Tote Bag"
+        },
+        {
+          "name": "Apron"
+        }
       ]
     },
     {
@@ -56,39 +86,105 @@
       "description": "Pick your item — your photo or design on a keepsake. Priced per item.",
       "optionLabel": "Item",
       "choices": [
-        { "name": "Bookmark", "price": 6.99 },
-        { "name": "Fridge Magnet", "price": 7.99 },
-        { "name": "Can Cooler / Koozie", "price": 8.99 },
-        { "name": "Keychain", "price": 9.99 },
-        { "name": "Photo Print", "price": 9.99 },
-        { "name": "Bag Charm", "price": 10.99 },
-        { "name": "Luggage Tag", "price": 10.99 },
-        { "name": "Compact Mirror", "price": 11.99 },
-        { "name": "Engraved Pen", "price": 12.99 },
-        { "name": "Socks", "price": 14.99 },
-        { "name": "Mouse Pad", "price": 14.99 },
-        { "name": "Notebook / Journal", "price": 16.99 },
-        { "name": "Zip Pouch", "price": 16.99 },
-        { "name": "Phone Case", "price": 19.99 },
-        { "name": "Jigsaw Puzzle", "price": 21.99 },
-        { "name": "Pillow Cover", "price": 24.99 }
+        {
+          "name": "Bookmark",
+          "price": 6.99
+        },
+        {
+          "name": "Fridge Magnet",
+          "price": 7.99
+        },
+        {
+          "name": "Can Cooler / Koozie",
+          "price": 8.99
+        },
+        {
+          "name": "Keychain",
+          "price": 9.99
+        },
+        {
+          "name": "Photo Print",
+          "price": 9.99
+        },
+        {
+          "name": "Bag Charm",
+          "price": 10.99
+        },
+        {
+          "name": "Luggage Tag",
+          "price": 10.99
+        },
+        {
+          "name": "Compact Mirror",
+          "price": 11.99
+        },
+        {
+          "name": "Engraved Pen",
+          "price": 12.99
+        },
+        {
+          "name": "Socks",
+          "price": 14.99
+        },
+        {
+          "name": "Mouse Pad",
+          "price": 14.99
+        },
+        {
+          "name": "Notebook / Journal",
+          "price": 16.99
+        },
+        {
+          "name": "Zip Pouch",
+          "price": 16.99
+        },
+        {
+          "name": "Phone Case",
+          "price": 19.99
+        },
+        {
+          "name": "Jigsaw Puzzle",
+          "price": 21.99
+        },
+        {
+          "name": "Pillow Cover",
+          "price": 24.99
+        }
       ]
     },
     {
       "id": "ceramic-coasters",
       "name": "Ceramic Coaster Set",
       "price": 8.99,
-      "image": "assets/img/product-coasters.jpg",
+      "image": "/assets/img/3bc6e672-7f83-4e51-8b31-dbf6d6a89ee5.png",
       "category": "Home",
       "description": "Personalized ceramic coasters with cork backing — buy one or a set.",
       "optionLabel": "Quantity",
       "choices": [
-        { "name": "Single", "price": 8.99 },
-        { "name": "Set of 4", "price": 24.99 },
-        { "name": "Set of 6", "price": 34.99 },
-        { "name": "Set of 8", "price": 44.99 },
-        { "name": "Set of 10", "price": 52.99 },
-        { "name": "Set of 12", "price": 60.99 }
+        {
+          "name": "Single",
+          "price": 8.99
+        },
+        {
+          "name": "Set of 4",
+          "price": 24.99
+        },
+        {
+          "name": "Set of 6",
+          "price": 34.99
+        },
+        {
+          "name": "Set of 8",
+          "price": 44.99
+        },
+        {
+          "name": "Set of 10",
+          "price": 52.99
+        },
+        {
+          "name": "Set of 12",
+          "price": 60.99
+        }
       ]
     },
     {
@@ -100,10 +196,18 @@
       "description": "Laser-engraved hardwood board — perfect for weddings & housewarmings.",
       "optionLabel": "Wood",
       "choices": [
-        { "name": "Maple" },
-        { "name": "Walnut" },
-        { "name": "Bamboo" },
-        { "name": "Round Slate" }
+        {
+          "name": "Maple"
+        },
+        {
+          "name": "Walnut"
+        },
+        {
+          "name": "Bamboo"
+        },
+        {
+          "name": "Round Slate"
+        }
       ]
     },
     {
@@ -115,11 +219,21 @@
       "description": "Custom keepsake ornament with names, dates, or a photo.",
       "optionLabel": "Shape",
       "choices": [
-        { "name": "Round" },
-        { "name": "Heart" },
-        { "name": "Star" },
-        { "name": "Snowflake" },
-        { "name": "Bauble" }
+        {
+          "name": "Round"
+        },
+        {
+          "name": "Heart"
+        },
+        {
+          "name": "Star"
+        },
+        {
+          "name": "Snowflake"
+        },
+        {
+          "name": "Bauble"
+        }
       ]
     },
     {
@@ -131,16 +245,36 @@
       "description": "Vinyl stickers & decals cut from your artwork — indoor or weatherproof.",
       "optionLabel": "Type",
       "choices": [
-        { "name": "Die-Cut" },
-        { "name": "Kiss-Cut" },
-        { "name": "Sticker Sheet" },
-        { "name": "Holographic" },
-        { "name": "Glitter" },
-        { "name": "Clear / Transparent" },
-        { "name": "Waterproof Vinyl" },
-        { "name": "Car Decal" },
-        { "name": "Laptop Decal" },
-        { "name": "Tumbler Decal" }
+        {
+          "name": "Die-Cut"
+        },
+        {
+          "name": "Kiss-Cut"
+        },
+        {
+          "name": "Sticker Sheet"
+        },
+        {
+          "name": "Holographic"
+        },
+        {
+          "name": "Glitter"
+        },
+        {
+          "name": "Clear / Transparent"
+        },
+        {
+          "name": "Waterproof Vinyl"
+        },
+        {
+          "name": "Car Decal"
+        },
+        {
+          "name": "Laptop Decal"
+        },
+        {
+          "name": "Tumbler Decal"
+        }
       ]
     }
   ]
