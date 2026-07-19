@@ -80,6 +80,122 @@
     });
   }
 
+  /* --------------------------- product media carousel --------------------------- */
+  function mediaHTML(p) {
+    var imgs = (p.images && p.images.length) ? p.images : (p.image ? [p.image] : []);
+    var slides = imgs.map(function (src, i) {
+      return '<div class="pslide' + (i === 0 ? " active" : "") + '"><img src="' + esc(src) + '" alt="' + esc(p.name) + '" loading="lazy"></div>';
+    });
+    if (p.video) {
+      slides.push('<div class="pslide"><video src="' + esc(p.video) + '" muted loop playsinline preload="metadata"></video><span class="pvid-badge">▶ Video</span></div>');
+    }
+    var n = slides.length;
+    var controls = "";
+    if (n > 1) {
+      var dots = "";
+      for (var i = 0; i < n; i++) dots += '<span class="pdot' + (i === 0 ? " on" : "") + '" data-d="' + i + '"></span>';
+      controls = '<button class="pnav prev" aria-label="Previous photo">‹</button>' +
+        '<button class="pnav next" aria-label="Next photo">›</button>' +
+        '<div class="pdots">' + dots + "</div>";
+    }
+    return '<div class="prod-media" data-idx="0">' + slides.join("") +
+      (p.category ? '<span class="prod-tag">' + esc(p.category) + "</span>" : "") +
+      controls + "</div>";
+  }
+  function setupCarousels(grid) {
+    grid.querySelectorAll(".prod-media").forEach(function (media) {
+      var slides = media.querySelectorAll(".pslide");
+      if (slides.length < 2) return;
+      var dots = media.querySelectorAll(".pdot");
+      function show(n) {
+        var cur = parseInt(media.getAttribute("data-idx") || "0", 10);
+        var prevVid = slides[cur].querySelector("video"); if (prevVid) prevVid.pause();
+        n = (n + slides.length) % slides.length;
+        slides.forEach(function (s, i) { s.classList.toggle("active", i === n); });
+        dots.forEach(function (d, i) { d.classList.toggle("on", i === n); });
+        media.setAttribute("data-idx", n);
+        var vid = slides[n].querySelector("video"); if (vid) { vid.play().catch(function () {}); }
+      }
+      var prev = media.querySelector(".pnav.prev");
+      var next = media.querySelector(".pnav.next");
+      if (prev) prev.addEventListener("click", function (e) { e.preventDefault(); e.stopPropagation(); show(parseInt(media.getAttribute("data-idx") || "0", 10) - 1); });
+      if (next) next.addEventListener("click", function (e) { e.preventDefault(); e.stopPropagation(); show(parseInt(media.getAttribute("data-idx") || "0", 10) + 1); });
+      dots.forEach(function (d) { d.addEventListener("click", function (e) { e.preventDefault(); e.stopPropagation(); show(parseInt(d.getAttribute("data-d"), 10)); }); });
+      // swipe on touch
+      var x0 = null;
+      media.addEventListener("touchstart", function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+      media.addEventListener("touchend", function (e) {
+        if (x0 === null) return;
+        var dx = e.changedTouches[0].clientX - x0;
+        if (Math.abs(dx) > 40) show(parseInt(media.getAttribute("data-idx") || "0", 10) + (dx < 0 ? 1 : -1));
+        x0 = null;
+      });
+    });
+  }
+
+  /* --------------------------- quick view modal --------------------------- */
+  function injectQuickView() {
+    if (SNIPCART) return;
+    if (document.querySelector("#qv-modal")) return;
+    var wrap = document.createElement("div");
+    wrap.innerHTML =
+      '<div class="qv-overlay" id="qv-overlay"></div>' +
+      '<div class="qv-modal" id="qv-modal" role="dialog" aria-modal="true" aria-label="Product details">' +
+        '<button class="qv-close" aria-label="Close">&times;</button>' +
+        '<div class="qv-media" id="qv-media"></div>' +
+        '<div class="qv-info" id="qv-info"></div>' +
+      "</div>";
+    document.body.appendChild(wrap);
+    document.querySelector("#qv-overlay").addEventListener("click", closeQuickView);
+    document.querySelector(".qv-close").addEventListener("click", closeQuickView);
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeQuickView(); });
+  }
+  function closeQuickView() {
+    var m = document.querySelector("#qv-modal"), o = document.querySelector("#qv-overlay");
+    if (m) { m.classList.remove("show"); m.querySelectorAll("video").forEach(function (v) { v.pause(); }); }
+    if (o) o.classList.remove("show");
+  }
+  function openQuickView(p) {
+    var media = document.querySelector("#qv-media");
+    var info = document.querySelector("#qv-info");
+    if (!media || !info) return;
+    media.innerHTML = mediaHTML(p);
+    var opts = "";
+    if (p.options && p.options.choices && p.options.choices.length) {
+      opts = '<label class="qv-opt"><span>' + esc(p.options.label || "Option") + '</span>' +
+        '<select id="qv-select">' + p.options.choices.map(function (c) {
+          var nm = choiceName(c);
+          var pr = (typeof c === "object" && c.price != null) ? " — " + money(c.price) : "";
+          return "<option>" + esc(nm) + pr + "</option>";
+        }).join("") + "</select></label>";
+    }
+    info.innerHTML =
+      (p.category ? '<span class="qv-cat">' + esc(p.category) + "</span>" : "") +
+      "<h3>" + esc(p.name) + "</h3>" +
+      '<div class="qv-price" id="qv-price">' + priceLabelFor(p) + "</div>" +
+      '<p class="qv-desc">' + esc(p.description || "") + "</p>" +
+      opts +
+      '<label class="qv-opt"><span>Personalization (optional)</span><input type="text" id="qv-note" placeholder="Name, initials, or text"></label>' +
+      '<button class="btn btn-gold" id="qv-add" style="width:100%;justify-content:center;margin-top:.4rem">Add to Cart</button>' +
+      '<p class="qv-hint">Add your photo/logo &amp; more details in the cart at checkout.</p>';
+    // live price on option change
+    var sel = info.querySelector("#qv-select");
+    if (sel) sel.addEventListener("change", function () {
+      var nm = sel.value.split(" — ")[0];
+      document.querySelector("#qv-price").textContent = money(priceFor(p, nm));
+    });
+    info.querySelector("#qv-add").addEventListener("click", function () {
+      var opt = sel ? sel.value.split(" — ")[0] : firstChoiceName(findProduct(p.id));
+      var note = (info.querySelector("#qv-note") || {}).value || "";
+      addItem(p.id, opt);
+      if (note) { var k = lineKey(p.id, opt); var l = cart.find(function (i) { return lineKey(i.id, i.option) === k; }); if (l) { l.note = note.trim(); save(cart); render(); } }
+      closeQuickView();
+    });
+    setupCarousels(document.querySelector("#qv-modal"));
+    document.querySelector("#qv-overlay").classList.add("show");
+    document.querySelector("#qv-modal").classList.add("show");
+  }
+
   /* --------------------------- shop grid page --------------------------- */
   function renderGrid() {
     var grid = document.querySelector("#shop-grid");
@@ -98,8 +214,7 @@
         btn = '<button class="btn btn-gold js-add" data-add="' + esc(p.id) + '">Add to Cart</button>';
       }
       return '<article class="prod-card reveal in" data-category="' + esc(p.category || "") + '" title="' + esc(p.description || "") + '">' +
-        '<div class="prod-media"><img src="' + esc(p.image) + '" alt="' + esc(p.name) + '" loading="lazy">' +
-        (p.category ? '<span class="prod-tag">' + esc(p.category) + "</span>" : "") + "</div>" +
+        mediaHTML(p) +
         '<div class="prod-body">' +
         '<h3>' + esc(p.name) + "</h3>" +
         '<div class="prod-foot"><span class="prod-price">' + priceLabelFor(p) + "</span></div>" +
@@ -112,6 +227,15 @@
           var id = b.getAttribute("data-add");
           addItem(id, firstChoiceName(findProduct(id)));
         });
+      });
+    }
+    setupCarousels(grid);
+    if (!SNIPCART) {
+      grid.querySelectorAll(".prod-card").forEach(function (card) {
+        var addBtn = card.querySelector(".js-add"); if (!addBtn) return;
+        var pid = addBtn.getAttribute("data-add");
+        var media = card.querySelector(".prod-media");
+        if (media) { media.style.cursor = "zoom-in"; media.addEventListener("click", function () { openQuickView(findProduct(pid)); }); }
       });
     }
   }
@@ -319,7 +443,7 @@
   }
 
   /* ------------------------------- init ------------------------------- */
-  function init() { renderGrid(); renderFilters(); injectChrome(); render(); if (SNIPCART) initSnipcart(); }
+  function init() { renderGrid(); renderFilters(); injectChrome(); injectQuickView(); render(); if (SNIPCART) initSnipcart(); }
   init();
   }
   if (window.LACCI_READY) run();

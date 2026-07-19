@@ -27,7 +27,13 @@ collections:
             fields:
               - { name: "name", label: "Product name", widget: "string" }
               - { name: "price", label: "Price ($)", widget: "number", value_type: "float", min: 0, hint: "Base price. If you use per-choice prices below, this is the lowest ('from') price." }
-              - { name: "image", label: "Photo", widget: "image", required: false, hint: "Best around 1200x750. Replaces the placeholder tile." }
+              - name: "images"
+                label: "Photos (slideshow)"
+                widget: "list"
+                required: false
+                field: { name: "image", label: "Photo", widget: "image" }
+                hint: "Add several photos — customers swipe through them like Etsy. First one is the main image."
+              - { name: "video", label: "Short video (optional, mp4 ≈8s)", widget: "file", required: false, hint: "Optional product video that plays as the last slide." }
               - { name: "category", label: "Category", widget: "string", hint: "e.g. Drinkware, Apparel, Gifts, Home, Engraving, Stickers. This also makes the filter buttons." }
               - { name: "description", label: "Short description", widget: "text" }
               - { name: "optionLabel", label: "Options label", widget: "string", required: false, hint: "e.g. Size, Color, Item. Leave blank if the product has no choices." }
@@ -40,6 +46,25 @@ collections:
                   - { name: "name", label: "Choice", widget: "string" }
                   - { name: "price", label: "Price for this choice ($)", widget: "number", value_type: "float", required: false, min: 0, hint: "Leave blank to use the product's base price." }
               - { name: "id", label: "Internal ID (leave as-is)", widget: "string", hint: "Unique tag used behind the scenes — don't change on existing products." }
+
+  # ---------------- Gallery (Our Work) ----------------
+  - name: "gallery"
+    label: "Gallery — Our Work"
+    files:
+      - name: "gallery"
+        label: "Gallery"
+        file: "content/gallery.json"
+        description: "Photos of your finished work. Add, remove, reorder, and caption them."
+        fields:
+          - { name: "intro", label: "Intro sentence", widget: "text" }
+          - name: "items"
+            label: "Photos"
+            label_singular: "Photo"
+            widget: "list"
+            summary: "{{fields.caption}}"
+            fields:
+              - { name: "image", label: "Photo", widget: "image" }
+              - { name: "caption", label: "Caption", widget: "string", required: false }
 
   # ---------------- Homepage text ----------------
   - name: "homepage"
