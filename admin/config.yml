@@ -3,7 +3,7 @@ backend:
   name: github
   repo: rtrtssn4cn-hue/laccistudio-site
   branch: main
-  base_url: https://OAUTH_WORKER_URL   # <-- your OAuth login worker (steps in SETUP-VISUAL-EDITOR.md)
+  base_url: https://lacci-oauth.pupsride.workers.dev
 
 media_folder: "assets/img"
 public_folder: "/assets/img"
