@@ -1,6 +1,9 @@
+# Logs in through GitHub (we left Netlify). Fill in your repo + OAuth worker below.
 backend:
-  name: git-gateway
+  name: github
+  repo: rtrtssn4cn-hue/laccistudio-site
   branch: main
+  base_url: https://OAUTH_WORKER_URL   # <-- your OAuth login worker (steps in SETUP-VISUAL-EDITOR.md)
 
 media_folder: "assets/img"
 public_folder: "/assets/img"

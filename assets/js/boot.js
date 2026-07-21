@@ -38,23 +38,29 @@
     };
 
     // ---- Shop (used by cart.js) ----
-    var products = (p.products || []).map(function (pr) {
-      var opt = null;
-      if (pr.choices && pr.choices.length) {
-        opt = {
-          label: pr.optionLabel || "Option",
-          choices: pr.choices.map(function (c) {
-            return (c && c.price !== undefined && c.price !== null && c.price !== "")
-              ? { name: c.name, price: Number(c.price) }
-              : (c && c.name ? c.name : c);
-          })
-        };
+    function mapChoice(c) {
+      if (typeof c === "string") return { name: c };
+      var o = { name: c.name };
+      if (c.price !== undefined && c.price !== null && c.price !== "") o.price = Number(c.price);
+      if (c.add !== undefined && c.add !== null && c.add !== "") o.add = Number(c.add);
+      if (c.img) o.img = c.img;
+      return o;
+    }
+    function mapGroup(g) { return { label: g.label || "Option", choices: (g.choices || []).map(mapChoice) }; }
+    var products = (p.products || []).filter(function (pr) { return !pr.hidden; }).map(function (pr) {
+      var groups = [];
+      if (pr.optionGroups && pr.optionGroups.length) {
+        groups = pr.optionGroups.map(mapGroup);
+      } else if (pr.choices && pr.choices.length) {
+        groups = [{ label: pr.optionLabel || "Option", choices: pr.choices.map(mapChoice) }];
       }
       var imgs = (pr.images && pr.images.length) ? pr.images : (pr.image ? [pr.image] : []);
       return {
         id: pr.id, name: pr.name, price: Number(pr.price),
         image: imgs[0] || "", images: imgs, video: pr.video || "",
-        category: pr.category, description: pr.description, options: opt
+        category: pr.category, description: pr.description,
+        mockupPhoto: pr.mockupPhoto || "",
+        options: groups[0] || null, optionGroups: groups
       };
     });
     window.LACCI_SHOP = {
@@ -65,7 +71,8 @@
         orderEmail: s.orderEmail || s.email || "",
         paypalClientId: s.paypalClientId || "",
         snipcartApiKey: s.snipcartApiKey || "",
-        uploadEndpoint: s.uploadEndpoint || ""
+        uploadEndpoint: s.uploadEndpoint || "",
+        uploadcarePublicKey: s.uploadcarePublicKey || ""
       },
       products: products
     };
