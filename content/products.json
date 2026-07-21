@@ -5,8 +5,7 @@
    "name": "Personalized Tumbler",
    "price": 27.99,
    "images": [
-    "assets/img/product-tumbler.jpg",
-    "assets/img/gal-drinkware.jpg"
+    "assets/img/mock/mock-sublimation-tumbler.png?v=12"
    ],
    "video": "",
    "category": "Drinkware",
@@ -60,8 +59,7 @@
    "name": "Personalized Mug",
    "price": 18.99,
    "images": [
-    "assets/img/product-mug.jpg",
-    "assets/img/gal-gifts.jpg"
+    "assets/img/mock/mock-sublimation-mug.png?v=12"
    ],
    "video": "",
    "category": "Drinkware",
@@ -116,9 +114,7 @@
    "name": "Custom T-Shirt",
    "price": 24.99,
    "images": [
-    "assets/img/product-apparel.jpg",
-    "assets/img/gal-apparel.jpg",
-    "assets/img/gal-embroidery.jpg"
+    "assets/img/mock/mock-apparel-t-shirt.png?v=12"
    ],
    "video": "",
    "category": "Apparel",
@@ -168,9 +164,7 @@
    "name": "Custom V-Neck Tee",
    "price": 24.99,
    "images": [
-    "assets/img/product-apparel.jpg",
-    "assets/img/gal-apparel.jpg",
-    "assets/img/gal-embroidery.jpg"
+    "assets/img/mock/mock-apparel-v-neck-tee.png?v=12"
    ],
    "video": "",
    "category": "Apparel",
@@ -220,9 +214,7 @@
    "name": "Custom Ladies' Fitted Tee",
    "price": 25.99,
    "images": [
-    "assets/img/product-apparel.jpg",
-    "assets/img/gal-apparel.jpg",
-    "assets/img/gal-embroidery.jpg"
+    "assets/img/mock/mock-apparel-ladies-fitted-tee.png?v=12"
    ],
    "video": "",
    "category": "Apparel",
@@ -272,9 +264,7 @@
    "name": "Custom Tank Top",
    "price": 23.99,
    "images": [
-    "assets/img/product-apparel.jpg",
-    "assets/img/gal-apparel.jpg",
-    "assets/img/gal-embroidery.jpg"
+    "assets/img/mock/mock-apparel-tank-top.png?v=12"
    ],
    "video": "",
    "category": "Apparel",
@@ -324,9 +314,7 @@
    "name": "Custom Long-Sleeve Tee",
    "price": 28.99,
    "images": [
-    "assets/img/product-apparel.jpg",
-    "assets/img/gal-apparel.jpg",
-    "assets/img/gal-embroidery.jpg"
+    "assets/img/mock/mock-apparel-long-sleeve-tee.png?v=12"
    ],
    "video": "",
    "category": "Apparel",
@@ -376,9 +364,7 @@
    "name": "Custom Youth Tee",
    "price": 21.99,
    "images": [
-    "assets/img/product-apparel.jpg",
-    "assets/img/gal-apparel.jpg",
-    "assets/img/gal-embroidery.jpg"
+    "assets/img/mock/mock-apparel-youth-tee.png?v=12"
    ],
    "video": "",
    "category": "Apparel",
@@ -428,9 +414,7 @@
    "name": "Custom Baby Onesie",
    "price": 22.99,
    "images": [
-    "assets/img/product-apparel.jpg",
-    "assets/img/gal-apparel.jpg",
-    "assets/img/gal-embroidery.jpg"
+    "assets/img/mock/mock-apparel-baby-onesie.png?v=12"
    ],
    "video": "",
    "category": "Apparel",
@@ -480,9 +464,7 @@
    "name": "Custom Crewneck Sweatshirt",
    "price": 34.99,
    "images": [
-    "assets/img/product-apparel.jpg",
-    "assets/img/gal-apparel.jpg",
-    "assets/img/gal-embroidery.jpg"
+    "assets/img/mock/mock-apparel-crewneck-sweatshirt.png?v=12"
    ],
    "video": "",
    "category": "Apparel",
@@ -532,9 +514,7 @@
    "name": "Custom Hoodie",
    "price": 37.99,
    "images": [
-    "assets/img/product-apparel.jpg",
-    "assets/img/gal-apparel.jpg",
-    "assets/img/gal-embroidery.jpg"
+    "assets/img/mock/mock-apparel-hoodie.png?v=12"
    ],
    "video": "",
    "category": "Apparel",
@@ -584,9 +564,7 @@
    "name": "Custom Zip-Up Hoodie",
    "price": 42.99,
    "images": [
-    "assets/img/product-apparel.jpg",
-    "assets/img/gal-apparel.jpg",
-    "assets/img/gal-embroidery.jpg"
+    "assets/img/mock/mock-apparel-zip-up-hoodie.png?v=12"
    ],
    "video": "",
    "category": "Apparel",
@@ -636,9 +614,7 @@
    "name": "Custom Dad Cap",
    "price": 22.99,
    "images": [
-    "assets/img/product-apparel.jpg",
-    "assets/img/gal-apparel.jpg",
-    "assets/img/gal-embroidery.jpg"
+    "assets/img/mock/mock-apparel-dad-cap.png?v=12"
    ],
    "video": "",
    "category": "Apparel",
@@ -651,9 +627,7 @@
    "name": "Custom Trucker Hat",
    "price": 22.99,
    "images": [
-    "assets/img/product-apparel.jpg",
-    "assets/img/gal-apparel.jpg",
-    "assets/img/gal-embroidery.jpg"
+    "assets/img/mock/mock-apparel-trucker-hat.png?v=12"
    ],
    "video": "",
    "category": "Apparel",
@@ -666,9 +640,7 @@
    "name": "Custom Beanie",
    "price": 21.99,
    "images": [
-    "assets/img/product-apparel.jpg",
-    "assets/img/gal-apparel.jpg",
-    "assets/img/gal-embroidery.jpg"
+    "assets/img/mock/mock-apparel-beanie.png?v=12"
    ],
    "video": "",
    "category": "Apparel",
@@ -681,9 +653,7 @@
    "name": "Custom Tote Bag",
    "price": 20.99,
    "images": [
-    "assets/img/product-apparel.jpg",
-    "assets/img/gal-apparel.jpg",
-    "assets/img/gal-embroidery.jpg"
+    "assets/img/mock/mock-apparel-tote-bag.png?v=12"
    ],
    "video": "",
    "category": "Apparel",
@@ -696,9 +666,7 @@
    "name": "Custom Apron",
    "price": 26.99,
    "images": [
-    "assets/img/product-apparel.jpg",
-    "assets/img/gal-apparel.jpg",
-    "assets/img/gal-embroidery.jpg"
+    "assets/img/mock/mock-apparel-apron.png?v=12"
    ],
    "video": "",
    "category": "Apparel",
@@ -711,8 +679,7 @@
    "name": "Personalized Ornament",
    "price": 14.99,
    "images": [
-    "assets/img/product-ornament.jpg",
-    "assets/img/gal-gifts.jpg"
+    "assets/img/mock/mock-personalized-ornament.png?v=12"
    ],
    "video": "",
    "category": "Gifts",
@@ -790,8 +757,7 @@
    "name": "Personalized Bookmark",
    "price": 6.99,
    "images": [
-    "assets/img/product-gifts.jpg",
-    "assets/img/gal-gifts.jpg"
+    "assets/img/mock/mock-gift-bookmark.png?v=12"
    ],
    "video": "",
    "category": "Gifts",
@@ -804,8 +770,7 @@
    "name": "Personalized Fridge Magnet",
    "price": 7.99,
    "images": [
-    "assets/img/product-gifts.jpg",
-    "assets/img/gal-gifts.jpg"
+    "assets/img/mock/mock-gift-fridge-magnet.png?v=12"
    ],
    "video": "",
    "category": "Gifts",
@@ -818,8 +783,7 @@
    "name": "Personalized Can Cooler",
    "price": 8.99,
    "images": [
-    "assets/img/product-gifts.jpg",
-    "assets/img/gal-gifts.jpg"
+    "assets/img/mock/mock-gift-can-cooler-koozie.png?v=12"
    ],
    "video": "",
    "category": "Gifts",
@@ -832,8 +796,7 @@
    "name": "Personalized Shot Glass",
    "price": 8.99,
    "images": [
-    "assets/img/product-gifts.jpg",
-    "assets/img/gal-gifts.jpg"
+    "assets/img/mock/mock-gift-shot-glass.png?v=12"
    ],
    "video": "",
    "category": "Gifts",
@@ -847,8 +810,7 @@
    "name": "Personalized Keychain",
    "price": 9.99,
    "images": [
-    "assets/img/product-gifts.jpg",
-    "assets/img/gal-gifts.jpg"
+    "assets/img/mock/mock-gift-keychain.png?v=12"
    ],
    "video": "",
    "category": "Gifts",
@@ -890,8 +852,7 @@
    "name": "Personalized Bag Charm",
    "price": 10.99,
    "images": [
-    "assets/img/product-gifts.jpg",
-    "assets/img/gal-gifts.jpg"
+    "assets/img/mock/mock-gift-bag-charm.png?v=12"
    ],
    "video": "",
    "category": "Gifts",
@@ -905,8 +866,7 @@
    "name": "Personalized Luggage Tag",
    "price": 10.99,
    "images": [
-    "assets/img/product-gifts.jpg",
-    "assets/img/gal-gifts.jpg"
+    "assets/img/mock/mock-gift-luggage-tag.png?v=12"
    ],
    "video": "",
    "category": "Gifts",
@@ -948,8 +908,7 @@
    "name": "Personalized Engraved Pen",
    "price": 12.99,
    "images": [
-    "assets/img/product-gifts.jpg",
-    "assets/img/gal-gifts.jpg"
+    "assets/img/mock/mock-gift-engraved-pen.png?v=12"
    ],
    "video": "",
    "category": "Gifts",
@@ -1005,8 +964,7 @@
    "name": "Personalized Socks",
    "price": 14.99,
    "images": [
-    "assets/img/product-gifts.jpg",
-    "assets/img/gal-gifts.jpg"
+    "assets/img/mock/mock-gift-socks.png?v=12"
    ],
    "video": "",
    "category": "Gifts",
@@ -1019,8 +977,7 @@
    "name": "Personalized Mouse Pad",
    "price": 14.99,
    "images": [
-    "assets/img/product-gifts.jpg",
-    "assets/img/gal-gifts.jpg"
+    "assets/img/mock/mock-gift-mouse-pad.png?v=12"
    ],
    "video": "",
    "category": "Gifts",
@@ -1033,8 +990,7 @@
    "name": "Personalized Notebook",
    "price": 16.99,
    "images": [
-    "assets/img/product-gifts.jpg",
-    "assets/img/gal-gifts.jpg"
+    "assets/img/mock/mock-gift-notebook-journal.png?v=12"
    ],
    "video": "",
    "category": "Gifts",
@@ -1048,8 +1004,7 @@
    "name": "Personalized Zip Pouch",
    "price": 16.99,
    "images": [
-    "assets/img/product-gifts.jpg",
-    "assets/img/gal-gifts.jpg"
+    "assets/img/mock/mock-gift-zip-pouch.png?v=12"
    ],
    "video": "",
    "category": "Gifts",
@@ -1076,8 +1031,7 @@
    "name": "Personalized License Plate",
    "price": 16.99,
    "images": [
-    "assets/img/product-gifts.jpg",
-    "assets/img/gal-gifts.jpg"
+    "assets/img/mock/mock-gift-license-plate.png?v=12"
    ],
    "video": "",
    "category": "Gifts",
@@ -1090,8 +1044,7 @@
    "name": "Personalized Phone Case",
    "price": 19.99,
    "images": [
-    "assets/img/product-gifts.jpg",
-    "assets/img/gal-gifts.jpg"
+    "assets/img/mock/mock-gift-phone-case.png?v=12"
    ],
    "video": "",
    "category": "Gifts",
@@ -1146,8 +1099,7 @@
    "name": "Personalized Pillow Cover",
    "price": 24.99,
    "images": [
-    "assets/img/product-gifts.jpg",
-    "assets/img/gal-gifts.jpg"
+    "assets/img/mock/mock-gift-pillow-cover.png?v=12"
    ],
    "video": "",
    "category": "Gifts",
@@ -1175,8 +1127,7 @@
    "name": "Personalized Coasters",
    "price": 8.99,
    "images": [
-    "assets/img/product-coasters.jpg",
-    "assets/img/gal-coasters.jpg"
+    "assets/img/mock/mock-ceramic-coasters.png?v=12"
    ],
    "video": "",
    "category": "Home",
@@ -1257,8 +1208,7 @@
    "name": "Engraved Cutting Board",
    "price": 34.99,
    "images": [
-    "assets/img/product-cutting-board.jpg",
-    "assets/img/gal-engraving.jpg"
+    "assets/img/mock/mock-board.png?v=12"
    ],
    "video": "",
    "category": "Engraving",
@@ -1327,8 +1277,7 @@
    "name": "Custom Stickers & Decals",
    "price": 3.99,
    "images": [
-    "assets/img/product-stickers.jpg",
-    "assets/img/gal-stickers.jpg"
+    "assets/img/mock/mock-custom-stickers.png?v=12"
    ],
    "video": "",
    "category": "Stickers",
