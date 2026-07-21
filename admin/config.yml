@@ -3,7 +3,7 @@ backend:
   name: github
   repo: rtrtssn4cn-hue/laccistudio-site
   branch: main
-  base_url: https://lacci-oauth.pupsride.workers.dev
+  base_url: https://lacci-oauth.pupsride.workers.dev   # your OAuth login worker
 
 media_folder: "assets/img"
 public_folder: "/assets/img"
@@ -66,7 +66,14 @@ collections:
             widget: "list"
             summary: "{{fields.caption}}"
             fields:
-              - { name: "image", label: "Photo", widget: "image" }
+              - name: "images"
+                label: "Photos (first one = cover — add as many as you like)"
+                widget: "list"
+                required: false
+                field: { name: "image", label: "Photo", widget: "image" }
+                hint: "Drag to reorder. The first photo is the cover; the rest become a slideshow."
+              - { name: "video", label: "Video (optional, mp4 under 25MB)", widget: "file", required: false, hint: "Plays as the last slide." }
+              - { name: "category", label: "Category (matches shop filters)", widget: "select", options: ["Drinkware", "Apparel", "Gifts", "Home", "Stickers"], required: false }
               - { name: "caption", label: "Caption", widget: "string", required: false }
 
   # ---------------- Homepage text ----------------
