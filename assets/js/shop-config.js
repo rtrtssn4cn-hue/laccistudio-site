@@ -59,7 +59,6 @@ window.LACCI_SHOP = {
         { name: "Bag Charm", price: 10.99 },
         { name: "Luggage Tag", price: 10.99 },
         { name: "Compact Mirror", price: 11.99 },
-        { name: "Engraved Pen", price: 12.99 },
         { name: "Socks", price: 14.99 },
         { name: "Mouse Pad", price: 14.99 },
         { name: "Notebook / Journal", price: 16.99 },
@@ -85,15 +84,6 @@ window.LACCI_SHOP = {
         { name: "Set of 10", price: 52.99 },
         { name: "Set of 12", price: 60.99 }
       ] }
-    },
-    {
-      id: "engraved-board",
-      name: "Engraved Cutting Board",
-      price: 42.99,
-      image: "assets/img/product-cutting-board.jpg",
-      category: "Engraving",
-      description: "Laser-engraved hardwood board — perfect for weddings & housewarmings.",
-      options: { label: "Wood", choices: ["Maple", "Walnut", "Bamboo", "Round Slate"] }
     },
     {
       id: "personalized-ornament",
