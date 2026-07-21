@@ -97,11 +97,13 @@
 
   /* --------------------------- product media carousel --------------------------- */
   function mediaHTML(p) {
-    // Card image: real product photo if we have one, else the line-art mockup canvas
-    var base = p.mockupPhoto
-      ? '<img class="prod-mockphoto" src="' + esc(p.mockupPhoto) + '" alt="' + esc(p.name) + '" loading="lazy">'
-      : '<div class="prod-mock">' + mockupSVG(p) + "</div>";
-    var slides = ['<div class="pslide active">' + base + "</div>"];
+    // Slideshow of example-design photos (first photo = cover). Falls back to the mockup, then line-art.
+    var imgs = (p.images && p.images.length) ? p.images : (p.mockupPhoto ? [p.mockupPhoto] : []);
+    var slides = imgs.length
+      ? imgs.map(function (src, i) {
+          return '<div class="pslide' + (i === 0 ? " active" : "") + '"><img class="prod-mockphoto" src="' + esc(src) + '" alt="' + esc(p.name) + '" loading="lazy"></div>';
+        })
+      : ['<div class="pslide active"><div class="prod-mock">' + mockupSVG(p) + "</div></div>"];
     if (p.video) {
       slides.push('<div class="pslide"><video src="' + esc(p.video) + '" muted loop playsinline preload="metadata"></video><span class="pvid-badge">▶ Video</span></div>');
     }
